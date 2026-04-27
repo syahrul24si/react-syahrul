@@ -106,25 +106,32 @@ import NotFound from "./pages/NotFound";
 import Error400 from "./pages/Error400";
 import Error401 from "./pages/Error401";
 import Error403 from "./pages/Error403";
+import { MainLayout } from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Forgot from "./pages/auth/Forgot";
 
 export default function App() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
-
-      <div className="flex-1 ml-64 p-4">
-        <Header />
-
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/error-400" element={<Error400 />} />
-          <Route path="/error-401" element={<Error401 />} />
-          <Route path="/error-403" element={<Error403 />} />
-          <Route path="*" element={<NotFound />} />
+          <Route element={<MainLayout/>}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/error-400" element={<Error400 />} />
+            <Route path="/error-401" element={<Error401 />} />
+            <Route path="/error-403" element={<Error403 />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+
+          <Route element={<AuthLayout/>}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="/forgot" element={<Forgot/>} />
+        </Route>
+
         </Routes>
-      </div>
-    </div>
+
   );
 } 
