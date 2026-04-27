@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "name": "Pantai Kuta",
+    "category": "Pantai",
+    "city": "Badung",
+    "price": 15000,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    "description": "Pantai populer dengan sunset indah dan area wisata ramai.",
+    "location": {
+      "province": "Bali",
+      "address": "Jl. Pantai Kuta, Badung",
+      "coordinates": { "lat": -8.7177, "lng": 115.1682 }
+    },
+    "schedule": {
+      "open": "07:00",
+      "close": "18:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567890",
+      "email": "kuta@wisata.id",
+      "website": "https://kuta.example.com"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Malioboro",
+    "category": "Kota",
+    "city": "Yogyakarta",
+    "price": 10000,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=800&q=80",
+    "description": "Pusat wisata belanja dan kuliner khas Jogja.",
+    "location": {
+      "province": "DI Yogyakarta",
+      "address": "Jl. Malioboro, Yogyakarta",
+      "coordinates": { "lat": -7.7928, "lng": 110.3658 }
+    },
+    "schedule": {
+      "open": "09:00",
+      "close": "22:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567891",
+      "email": "malioboro@wisata.id",
+      "website": "https://malioboro.example.com"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Kawah Putih",
+    "category": "Pegunungan",
+    "city": "Bandung",
+    "price": 25000,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
+    "description": "Danau kawah dengan pemandangan alam yang unik.",
+    "location": {
+      "province": "Jawa Barat",
+      "address": "Ciwidey, Bandung",
+      "coordinates": { "lat": -7.1661, "lng": 107.4022 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567892",
+      "email": "kawahputih@wisata.id",
+      "website": "https://kawahputih.example.com"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Taman Mini Indonesia Indah",
+    "category": "Taman",
+    "city": "Jakarta",
+    "price": 30000,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80",
+    "description": "Taman budaya dengan miniatur nusantara.",
+    "location": {
+      "province": "DKI Jakarta",
+      "address": "Cipayung, Jakarta Timur",
+      "coordinates": { "lat": -6.3024, "lng": 106.8951 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567893",
+      "email": "tmii@wisata.id",
+      "website": "https://tmii.example.com"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Candi Borobudur",
+    "category": "Sejarah",
+    "city": "Magelang",
+    "price": 50000,
+    "rating": 4.9,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Borobudur_Temple.jpg",
+    "description": "Candi Buddha terbesar dan warisan dunia.",
+    "location": {
+      "province": "Jawa Tengah",
+      "address": "Borobudur, Magelang",
+      "coordinates": { "lat": -7.6079, "lng": 110.2038 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567894",
+      "email": "borobudur@wisata.id",
+      "website": "https://borobudur.example.com"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Danau Toba",
+    "category": "Danau",
+    "city": "Samosir",
+    "price": 20000,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    "description": "Danau vulkanik terbesar di Indonesia.",
+    "location": {
+      "province": "Sumatera Utara",
+      "address": "Samosir, Sumatera Utara",
+      "coordinates": { "lat": 2.6845, "lng": 98.8756 }
+    },
+    "schedule": {
+      "open": "07:00",
+      "close": "18:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567895",
+      "email": "toba@wisata.id",
+      "website": "https://toba.example.com"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Gunung Bromo",
+    "category": "Pegunungan",
+    "city": "Probolinggo",
+    "price": 35000,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=800&q=80",
+    "description": "Destinasi sunrise favorit di Jawa Timur.",
+    "location": {
+      "province": "Jawa Timur",
+      "address": "Bromo, Probolinggo",
+      "coordinates": { "lat": -7.9425, "lng": 112.9530 }
+    },
+    "schedule": {
+      "open": "03:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567896",
+      "email": "bromo@wisata.id",
+      "website": "https://bromo.example.com"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Pantai Parangtritis",
+    "category": "Pantai",
+    "city": "Bantul",
+    "price": 10000,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=800&q=80",
+    "description": "Pantai terkenal dengan ombak besar dan sunset cantik.",
+    "location": {
+      "province": "DI Yogyakarta",
+      "address": "Parangtritis, Bantul",
+      "coordinates": { "lat": -8.0257, "lng": 110.3298 }
+    },
+    "schedule": {
+      "open": "06:00",
+      "close": "18:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567897",
+      "email": "parangtritis@wisata.id",
+      "website": "https://parangtritis.example.com"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Kebun Raya Bogor",
+    "category": "Taman",
+    "city": "Bogor",
+    "price": 20000,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=800&q=80",
+    "description": "Taman botani luas dengan koleksi tanaman beragam.",
+    "location": {
+      "province": "Jawa Barat",
+      "address": "Bogor Tengah, Bogor",
+      "coordinates": { "lat": -6.5971, "lng": 106.7999 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "16:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567898",
+      "email": "kebunraya@wisata.id",
+      "website": "https://kebunraya.example.com"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Labuan Bajo",
+    "category": "Pantai",
+    "city": "Manggarai Barat",
+    "price": 45000,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80",
+    "description": "Gerbang wisata menuju Taman Nasional Komodo.",
+    "location": {
+      "province": "Nusa Tenggara Timur",
+      "address": "Labuan Bajo, Manggarai Barat",
+      "coordinates": { "lat": -8.4966, "lng": 119.8877 }
+    },
+    "schedule": {
+      "open": "07:00",
+      "close": "18:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567899",
+      "email": "labuanbajo@wisata.id",
+      "website": "https://labuanbajo.example.com"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Candi Prambanan",
+    "category": "Sejarah",
+    "city": "Sleman",
+    "price": 50000,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?auto=format&fit=crop&w=800&q=80",
+    "description": "Kompleks candi Hindu terbesar di Indonesia.",
+    "location": {
+      "province": "DI Yogyakarta",
+      "address": "Prambanan, Sleman",
+      "coordinates": { "lat": -7.7520, "lng": 110.4915 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567900",
+      "email": "prambanan@wisata.id",
+      "website": "https://prambanan.example.com"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Tangkuban Perahu",
+    "category": "Pegunungan",
+    "city": "Bandung Barat",
+    "price": 30000,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
+    "description": "Gunung berapi aktif dengan kawah yang dapat dikunjungi.",
+    "location": {
+      "province": "Jawa Barat",
+      "address": "Lembang, Bandung Barat",
+      "coordinates": { "lat": -6.7596, "lng": 107.6098 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567901",
+      "email": "tangkuban@wisata.id",
+      "website": "https://tangkuban.example.com"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Monas",
+    "category": "Sejarah",
+    "city": "Jakarta",
+    "price": 20000,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=800&q=80",
+    "description": "Ikon Jakarta dengan museum dan puncak observasi.",
+    "location": {
+      "province": "DKI Jakarta",
+      "address": "Gambir, Jakarta Pusat",
+      "coordinates": { "lat": -6.1754, "lng": 106.8272 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "16:00",
+      "days": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567902",
+      "email": "monas@wisata.id",
+      "website": "https://monas.example.com"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Jatim Park 2",
+    "category": "Taman",
+    "city": "Batu",
+    "price": 120000,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=800&q=80",
+    "description": "Taman hiburan edukatif dengan kebun binatang modern.",
+    "location": {
+      "province": "Jawa Timur",
+      "address": "Batu, Jawa Timur",
+      "coordinates": { "lat": -7.8871, "lng": 112.5299 }
+    },
+    "schedule": {
+      "open": "10:00",
+      "close": "18:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567903",
+      "email": "jatimpark2@wisata.id",
+      "website": "https://jatimpark2.example.com"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Pantai Losari",
+    "category": "Pantai",
+    "city": "Makassar",
+    "price": 5000,
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80",
+    "description": "Tempat santai tepi laut yang ikonik di Makassar.",
+    "location": {
+      "province": "Sulawesi Selatan",
+      "address": "Jl. Penghibur, Makassar",
+      "coordinates": { "lat": -5.1445, "lng": 119.4087 }
+    },
+    "schedule": {
+      "open": "06:00",
+      "close": "22:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567904",
+      "email": "losari@wisata.id",
+      "website": "https://losari.example.com"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Museum Angkut",
+    "category": "Museum",
+    "city": "Batu",
+    "price": 100000,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+    "description": "Museum transportasi modern dengan spot foto menarik.",
+    "location": {
+      "province": "Jawa Timur",
+      "address": "Batu, Jawa Timur",
+      "coordinates": { "lat": -7.8789, "lng": 112.5197 }
+    },
+    "schedule": {
+      "open": "12:00",
+      "close": "20:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567905",
+      "email": "museumangkut@wisata.id",
+      "website": "https://museumangkut.example.com"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Fort Rotterdam",
+    "category": "Sejarah",
+    "city": "Makassar",
+    "price": 15000,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80",
+    "description": "Benteng bersejarah peninggalan kolonial Belanda.",
+    "location": {
+      "province": "Sulawesi Selatan",
+      "address": "Jl. Ujung Pandang, Makassar",
+      "coordinates": { "lat": -5.1338, "lng": 119.4056 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567906",
+      "email": "fortrotterdam@wisata.id",
+      "website": "https://fortrotterdam.example.com"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Taman Sari",
+    "category": "Sejarah",
+    "city": "Yogyakarta",
+    "price": 15000,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+    "description": "Bekas taman kerajaan dengan arsitektur unik.",
+    "location": {
+      "province": "DI Yogyakarta",
+      "address": "Patehan, Yogyakarta",
+      "coordinates": { "lat": -7.8099, "lng": 110.3592 }
+    },
+    "schedule": {
+      "open": "09:00",
+      "close": "15:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567907",
+      "email": "tamansari@wisata.id",
+      "website": "https://tamansari.example.com"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Pulau Weh",
+    "category": "Pantai",
+    "city": "Sabang",
+    "price": 30000,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    "description": "Pulau wisata bahari dengan laut jernih.",
+    "location": {
+      "province": "Aceh",
+      "address": "Sabang, Aceh",
+      "coordinates": { "lat": 5.8897, "lng": 95.3169 }
+    },
+    "schedule": {
+      "open": "07:00",
+      "close": "18:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567908",
+      "email": "pulauweh@wisata.id",
+      "website": "https://pulauweh.example.com"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Bukit Tinggi Jam Gadang",
+    "category": "Kota",
+    "city": "Bukittinggi",
+    "price": 10000,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+    "description": "Landmark terkenal Sumatera Barat dengan pusat wisata kota.",
+    "location": {
+      "province": "Sumatera Barat",
+      "address": "Pusat Kota Bukittinggi",
+      "coordinates": { "lat": -0.3052, "lng": 100.3692 }
+    },
+    "schedule": {
+      "open": "08:00",
+      "close": "21:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+    },
+    "contact": {
+      "phone": "081234567909",
+      "email": "jamgadang@wisata.id",
+      "website": "https://jamgadang.example.com"
+    }
+  }
+]

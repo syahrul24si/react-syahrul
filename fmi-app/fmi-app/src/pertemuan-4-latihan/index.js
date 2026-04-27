@@ -1,0 +1,1 @@
+export { default } from "./Pertemuan4Latihan";
