@@ -1,5 +1,5 @@
-import ErrorPage from "../components/ErrorPage";
-import error403Image from "../assets/error-403.png";
+import ErrorPage from "../../components/ErrorPage";
+import error403Image from "../../assets/error-403.png";
 
 export default function Error403() {
   return (

@@ -1,16 +1,16 @@
 import { useState } from "react";
-import PageHeader from "../components/PageHeader";
-import customersData from "../data/customers";
+import PageHeader from "../../components/PageHeader";
+import ordersData from "../../data/orders";
 
-export default function Customers() {
-  const [customers, setCustomers] = useState(customersData);
+export default function Orders() {
+  const [orders, setOrders] = useState(ordersData);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    customerId: "",
+    orderId: "",
     customerName: "",
-    email: "",
-    phone: "",
-    loyalty: "Bronze",
+    status: "Pending",
+    totalPrice: "",
+    orderDate: "",
   });
 
   const handleChange = (e) => {
@@ -24,14 +24,20 @@ export default function Customers() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setCustomers([...customers, formData]);
+    setOrders([
+      ...orders,
+      {
+        ...formData,
+        totalPrice: Number(formData.totalPrice),
+      },
+    ]);
 
     setFormData({
-      customerId: "",
+      orderId: "",
       customerName: "",
-      email: "",
-      phone: "",
-      loyalty: "Bronze",
+      status: "Pending",
+      totalPrice: "",
+      orderDate: "",
     });
 
     setShowForm(false);
@@ -39,12 +45,12 @@ export default function Customers() {
 
   return (
     <div>
-      <PageHeader title="Customers" breadcrumb={["Dashboard", "Customer List"]}>
+      <PageHeader title="Orders" breadcrumb={["Dashboard", "Order List"]}>
         <button
           onClick={() => setShowForm(!showForm)}
           className="rounded-xl bg-green-500 px-4 py-2 text-white"
         >
-          Add Customer
+          Add Orders
         </button>
       </PageHeader>
 
@@ -52,11 +58,11 @@ export default function Customers() {
         <div className="mb-6 rounded-xl bg-white p-6 shadow-md">
           <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
             <div>
-              <label className="mb-1 block font-medium">Customer ID</label>
+              <label className="mb-1 block font-medium">Order ID</label>
               <input
                 type="text"
-                name="customerId"
-                value={formData.customerId}
+                name="orderId"
+                value={formData.orderId}
                 onChange={handleChange}
                 className="w-full rounded-lg border p-2"
                 required
@@ -76,41 +82,41 @@ export default function Customers() {
             </div>
 
             <div>
-              <label className="mb-1 block font-medium">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block font-medium">Phone</label>
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block font-medium">Loyalty</label>
+              <label className="mb-1 block font-medium">Status</label>
               <select
-                name="loyalty"
-                value={formData.loyalty}
+                name="status"
+                value={formData.status}
                 onChange={handleChange}
                 className="w-full rounded-lg border p-2"
               >
-                <option value="Bronze">Bronze</option>
-                <option value="Silver">Silver</option>
-                <option value="Gold">Gold</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
               </select>
+            </div>
+
+            <div>
+              <label className="mb-1 block font-medium">Total Price</label>
+              <input
+                type="number"
+                name="totalPrice"
+                value={formData.totalPrice}
+                onChange={handleChange}
+                className="w-full rounded-lg border p-2"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-1 block font-medium">Order Date</label>
+              <input
+                type="date"
+                name="orderDate"
+                value={formData.orderDate}
+                onChange={handleChange}
+                className="w-full rounded-lg border p-2"
+                required
+              />
             </div>
 
             <div className="flex items-end">
@@ -118,7 +124,7 @@ export default function Customers() {
                 type="submit"
                 className="rounded-xl bg-blue-500 px-4 py-2 text-white"
               >
-                Save Customer
+                Save Order
               </button>
             </div>
           </form>
@@ -129,24 +135,23 @@ export default function Customers() {
         <table className="min-w-full border-collapse">
           <thead>
             <tr className="border-b text-left">
-              <th className="p-3">Customer ID</th>
+              <th className="p-3">Order ID</th>
               <th className="p-3">Customer Name</th>
-              <th className="p-3">Email</th>
-              <th className="p-3">Phone</th>
-              <th className="p-3">Loyalty</th>
+              <th className="p-3">Status</th>
+              <th className="p-3">Total Price</th>
+              <th className="p-3">Order Date</th>
             </tr>
           </thead>
           <tbody>
-            {customers.map((customer) => (
-              <tr
-                key={customer.customerId}
-                className="border-b hover:bg-gray-50"
-              >
-                <td className="p-3">{customer.customerId}</td>
-                <td className="p-3">{customer.customerName}</td>
-                <td className="p-3">{customer.email}</td>
-                <td className="p-3">{customer.phone}</td>
-                <td className="p-3">{customer.loyalty}</td>
+            {orders.map((order) => (
+              <tr key={order.orderId} className="border-b hover:bg-gray-50">
+                <td className="p-3">{order.orderId}</td>
+                <td className="p-3">{order.customerName}</td>
+                <td className="p-3">{order.status}</td>
+                <td className="p-3">
+                  Rp {Number(order.totalPrice).toLocaleString("id-ID")}
+                </td>
+                <td className="p-3">{order.orderDate}</td>
               </tr>
             ))}
           </tbody>
