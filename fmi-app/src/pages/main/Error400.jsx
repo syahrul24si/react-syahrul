@@ -1,5 +1,5 @@
-import ErrorPage from "../components/ErrorPage";
-import error400Image from "../assets/error-400.png";
+import ErrorPage from "../../components/ErrorPage";
+import error400Image from "../../assets/error-400.png";
 
 export default function Error400() {
   return (
