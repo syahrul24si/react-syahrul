@@ -12,6 +12,8 @@ const Header = React.lazy(() => import("./layouts/Header"))
 const Dashboard = React.lazy(() => import("./pages/main/Dashboard"))
 const Orders = React.lazy(() => import("./pages/main/Orders"))
 const Customers = React.lazy(() => import("./pages/main/Customers"))
+const Produk = React.lazy(() => import("./pages/main/Produk"))
+const ProductDetail = React.lazy(() => import("./pages/main/ProductDetail"))
 const NotFound = React.lazy(() => import("./pages/main/NotFound"))
 const Error400 = React.lazy(() => import("./pages/main/Error400"))
 const Error401 = React.lazy(() => import("./pages/main/Error401"))
@@ -25,25 +27,26 @@ const Loading = React.lazy(() => import("./components/Loading"))
 
 export default function App() {
   return (
-    <Suspense fallback={<Loading/>}>
-        <Routes>
-          <Route element={<MainLayout/>}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/error-400" element={<Error400 />} />
-            <Route path="/error-401" element={<Error401 />} />
-            <Route path="/error-403" element={<Error403 />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-
-          <Route element={<AuthLayout/>}>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/forgot" element={<Forgot/>} />
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/products" element={<Produk />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/error-400" element={<Error400 />} />
+          <Route path="/error-401" element={<Error401 />} />
+          <Route path="/error-403" element={<Error403 />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
 
-        </Routes>
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot" element={<Forgot />} />
+        </Route>
+      </Routes>
     </Suspense>
   );
-} 
+}

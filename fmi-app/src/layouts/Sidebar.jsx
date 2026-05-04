@@ -3,7 +3,7 @@ import {
   MdSpaceDashboard,
   MdErrorOutline,
 } from "react-icons/md";
-import { FaShoppingCart, FaUsers } from "react-icons/fa";
+import { FaShoppingCart, FaUsers, FaBoxOpen } from "react-icons/fa";
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
@@ -45,21 +45,28 @@ export default function Sidebar() {
         </li>
 
         <li>
-          <NavLink id="menu-4" to="/error-400" className={menuClass}>
+          <NavLink id="menu-4" to="/products" className={menuClass}>
+            <FaBoxOpen className="mr-4 text-xl" />
+            Products
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink id="menu-5" to="/error-400" className={menuClass}>
             <MdErrorOutline className="mr-4 text-xl" />
             Error 400
           </NavLink>
         </li>
 
         <li>
-          <NavLink id="menu-5" to="/error-401" className={menuClass}>
+          <NavLink id="menu-6" to="/error-401" className={menuClass}>
             <MdErrorOutline className="mr-4 text-xl" />
             Error 401
           </NavLink>
         </li>
 
         <li>
-          <NavLink id="menu-6" to="/error-403" className={menuClass}>
+          <NavLink id="menu-7" to="/error-403" className={menuClass}>
             <MdErrorOutline className="mr-4 text-xl" />
             Error 403
           </NavLink>
