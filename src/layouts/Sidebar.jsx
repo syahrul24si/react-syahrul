@@ -66,6 +66,13 @@ export default function Sidebar() {
         </li>
 
         <li>
+          <NavLink id="menu-4" to="/note" className={menuClass}>
+            <FaBoxOpen className="mr-4 text-xl" />
+            Note
+          </NavLink>
+        </li>
+
+        <li>
           <NavLink id="menu-5" to="/error-400" className={menuClass}>
             <MdErrorOutline className="mr-4 text-xl" />
             Error 400
