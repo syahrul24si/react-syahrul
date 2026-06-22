@@ -10,7 +10,7 @@ export default function FiturXyz() {
   return (
     <div>
       <h1>Fitur Xyz</h1>
-      <p>Ini adalah halaman untuk menampilkan fitur Xyz..</p>
+      <p>Ini adalah halaman untuk menampilkan fitur Xyz...</p>
 
       <Button variant="destructive">Hapus</Button>
       <Button variant="danger">Hapus</Button>
