@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { supabase } from "@/supabase/supabaseClient";
 import PageHeader from "../../components/PageHeader";
 
 export default function ProductDetail() {
@@ -9,19 +9,21 @@ export default function ProductDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`https://dummyjson.com/products/${id}`)
-      .then((response) => {
-        if (response.status !== 200) {
-          setError(response.message);
-          return;
-        }
+    const fetchProduct = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .eq("id", id)
+        .single();
 
-        setProduct(response.data);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
+      if (error) {
+        setError(error.message);
+      } else {
+        setProduct(data);
+      }
+    };
+
+    fetchProduct();
   }, [id]);
 
   if (error) {
@@ -36,28 +38,30 @@ export default function ProductDetail() {
     <div>
       <PageHeader
         title="Detail Produk"
-        breadcrumb={`Dashboard / Produk / ${product.title}`}
+        breadcrumb={`Dashboard / Produk / ${product.name}`}
       />
 
       <div className="p-6 bg-white rounded-xl shadow-lg max-w-lg mx-auto mt-10">
-        <img
-          src={product.thumbnail}
-          alt={product.title}
-          className="rounded-xl mb-4 w-full h-48 object-cover"
-        />
+        {product.image_url && (
+          <img
+            src={product.image_url}
+            alt={product.name}
+            className="rounded-xl mb-4 w-full h-48 object-cover"
+          />
+        )}
 
-        <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
+        <h2 className="text-2xl font-bold mb-2">{product.name}</h2>
+
+        {product.description && (
+          <p className="text-gray-600 mb-2">{product.description}</p>
+        )}
 
         <p className="text-gray-600 mb-1">
-          Kategori: {product.category}
-        </p>
-
-        <p className="text-gray-600 mb-1">
-          Brand: {product.brand}
+          Stock: {product.stock}
         </p>
 
         <p className="text-gray-800 font-semibold text-lg">
-          Harga: Rp {(product.price * 1000).toLocaleString("id-ID")}
+          Harga: Rp {Number(product.price).toLocaleString("id-ID")}
         </p>
       </div>
     </div>

@@ -1,18 +1,18 @@
-import { FaBell, FaSearch } from "react-icons/fa";
+import { FaBell, FaSearch, FaSignOutAlt } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
+    const { profile, logout } = useAuth();
+
     return (
         <div
             id="header-container"
-            className="flex items-center justify-between p-4"
+            className="hidden lg:flex items-center justify-between p-4"
         >
             {/* Search Bar */}
-            <div
-                id="search-bar"
-                className="relative w-full max-w-lg"
-            >
+            <div id="search-bar" className="relative w-full max-w-lg">
                 <input
                     id="search-input"
                     type="text"
@@ -26,10 +26,7 @@ export default function Header() {
             </div>
 
             {/* Icon & Profile Section */}
-            <div
-                id="icons-container"
-                className="flex items-center space-x-4"
-            >
+            <div id="icons-container" className="flex items-center space-x-4">
                 {/* Icons */}
                 <div
                     id="notification-icon"
@@ -44,10 +41,7 @@ export default function Header() {
                     </span>
                 </div>
 
-                <div
-                    id="chart-icon"
-                    className="cursor-pointer rounded-2xl bg-blue-100 p-3"
-                >
+                <div id="chart-icon" className="cursor-pointer rounded-2xl bg-blue-100 p-3">
                     <FcAreaChart />
                 </div>
 
@@ -63,15 +57,16 @@ export default function Header() {
                     id="profile-container"
                     className="flex items-center space-x-4 border-l pl-4 border-gray-300"
                 >
-                    <span id="profile-text">
-                        Hello, <b>Syahrul Ramadhan</b>
+                    <span id="profile-text" className="hidden md:inline">
+                        Hello, <b>{profile?.full_name || "User"}</b>
                     </span>
-                    <img
-                        id="profile-avatar"
-                        src="./profpic.jpeg"
-                        alt="profile avatar"
-                        className="w-10 h-10 rounded-full"
-                    />
+                    <button
+                        onClick={logout}
+                        className="cursor-pointer rounded-2xl bg-red-500 p-3 text-white hover:bg-red-600 transition"
+                        title="Logout"
+                    >
+                        <FaSignOutAlt />
+                    </button>
                 </div>
             </div>
         </div>

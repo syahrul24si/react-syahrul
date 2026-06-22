@@ -1,161 +1,114 @@
-import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
-import ordersData from "../../data/orders";
+import { supabase } from "@/supabase/supabaseClient";
 
 export default function Orders() {
-  const [orders, setOrders] = useState(ordersData);
-  const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({
-    orderId: "",
-    customerName: "",
-    status: "Pending",
-    totalPrice: "",
-    orderDate: "",
-  });
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const fetchOrders = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from("orders")
+      .select("*, profiles(full_name)")
+      .order("created_at", { ascending: false });
+
+    if (!error && data) {
+      setOrders(data);
+    }
+    setLoading(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
-    setOrders([
-      ...orders,
-      {
-        ...formData,
-        totalPrice: Number(formData.totalPrice),
-      },
-    ]);
+  const handleStatusChange = async (orderId, newStatus) => {
+    await supabase
+      .from("orders")
+      .update({ status: newStatus })
+      .eq("id", orderId);
 
-    setFormData({
-      orderId: "",
-      customerName: "",
-      status: "Pending",
-      totalPrice: "",
-      orderDate: "",
-    });
+    fetchOrders();
+  };
 
-    setShowForm(false);
+  const statusColor = (status) => {
+    switch (status) {
+      case "pending": return "bg-yellow-200 text-yellow-800";
+      case "processing": return "bg-blue-200 text-blue-800";
+      case "completed": return "bg-green-200 text-green-800";
+      case "cancelled": return "bg-red-200 text-red-800";
+      default: return "bg-gray-200 text-gray-800";
+    }
   };
 
   return (
     <div>
-      <PageHeader title="Orders" breadcrumb={["Dashboard", "Order List"]}>
-        <button
-          onClick={() => setShowForm(!showForm)}
-          className="rounded-xl bg-green-500 px-4 py-2 text-white"
-        >
-          Add Orders
-        </button>
-      </PageHeader>
-
-      {showForm && (
-        <div className="mb-6 rounded-xl bg-white p-6 shadow-md">
-          <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
-            <div>
-              <label className="mb-1 block font-medium">Order ID</label>
-              <input
-                type="text"
-                name="orderId"
-                value={formData.orderId}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block font-medium">Customer Name</label>
-              <input
-                type="text"
-                name="customerName"
-                value={formData.customerName}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block font-medium">Status</label>
-              <select
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-              >
-                <option value="Pending">Pending</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="mb-1 block font-medium">Total Price</label>
-              <input
-                type="number"
-                name="totalPrice"
-                value={formData.totalPrice}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block font-medium">Order Date</label>
-              <input
-                type="date"
-                name="orderDate"
-                value={formData.orderDate}
-                onChange={handleChange}
-                className="w-full rounded-lg border p-2"
-                required
-              />
-            </div>
-
-            <div className="flex items-end">
-              <button
-                type="submit"
-                className="rounded-xl bg-blue-500 px-4 py-2 text-white"
-              >
-                Save Order
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
+      <PageHeader title="Orders" breadcrumb={["Dashboard", "Order List"]} />
 
       <div className="mt-6 overflow-x-auto rounded-xl bg-white p-4 shadow-md">
-        <table className="min-w-full border-collapse">
-          <thead>
-            <tr className="border-b text-left">
-              <th className="p-3">Order ID</th>
-              <th className="p-3">Customer Name</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Total Price</th>
-              <th className="p-3">Order Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order.orderId} className="border-b hover:bg-gray-50">
-                <td className="p-3">{order.orderId}</td>
-                <td className="p-3">{order.customerName}</td>
-                <td className="p-3">{order.status}</td>
-                <td className="p-3">
-                  Rp {Number(order.totalPrice).toLocaleString("id-ID")}
-                </td>
-                <td className="p-3">{order.orderDate}</td>
+        {loading ? (
+          <p className="p-4 text-center text-gray-500">Loading...</p>
+        ) : (
+          <table className="min-w-full border-collapse">
+            <thead>
+              <tr className="border-b text-left">
+                <th className="p-3">Customer</th>
+                <th className="p-3">Total Original</th>
+                <th className="p-3">Discount</th>
+                <th className="p-3">Total Final</th>
+                <th className="p-3">Points Earned</th>
+                <th className="p-3">Status</th>
+                <th className="p-3">Date</th>
+                <th className="p-3">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order.id} className="border-b hover:bg-gray-50">
+                  <td className="p-3">{order.profiles?.full_name || "-"}</td>
+                  <td className="p-3">
+                    Rp {Number(order.total_original).toLocaleString("id-ID")}
+                  </td>
+                  <td className="p-3">
+                    Rp {Number(order.discount_amount).toLocaleString("id-ID")}
+                  </td>
+                  <td className="p-3 font-semibold">
+                    Rp {Number(order.total_final).toLocaleString("id-ID")}
+                  </td>
+                  <td className="p-3">{order.points_earned}</td>
+                  <td className="p-3">
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${statusColor(order.status)}`}>
+                      {order.status}
+                    </span>
+                  </td>
+                  <td className="p-3">
+                    {new Date(order.created_at).toLocaleDateString("id-ID")}
+                  </td>
+                  <td className="p-3">
+                    <select
+                      value={order.status}
+                      onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                      className="rounded border p-1 text-sm"
+                    >
+                      <option value="pending">Pending</option>
+                      <option value="processing">Processing</option>
+                      <option value="completed">Completed</option>
+                      <option value="cancelled">Cancelled</option>
+                    </select>
+                  </td>
+                </tr>
+              ))}
+              {orders.length === 0 && (
+                <tr>
+                  <td colSpan="8" className="p-4 text-center text-gray-500">
+                    No orders found.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
